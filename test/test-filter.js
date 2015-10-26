@@ -40,12 +40,19 @@ var matches = [
     "i wish i was vegan",
     "i wish i were vegan",
     "i can see myself becoming a vegan someday",
-    "i could definitely picture myself going vegan"
+    "i could definitely picture myself going vegan",
+    // Dutch filter
+    "ik wil veganist worden",
+    "ik wil echt vegan worden",
+    "ik overweeg om vegan te zijn",
+    "ik denk er echt over om veganist te worden"
 ];
 
 var falsePositives = [
     "I do not want to go vegan",
     "I should be a vegan", // this phrasing more than likely isn't about going vegan long-term (e.g. I should be a vegan for Halloween)
+    // Dutch filter
+    "ik wil geen veganist worden"
 ];
 
 exports.matches = function(test) {
