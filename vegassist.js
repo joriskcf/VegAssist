@@ -5,7 +5,7 @@ var TweetFilter = require('./lib/filter');
 // Declare your own Twitter app credentials here, if duplicating
 var T = new Twit(settings.CREDS);
 // Whenever the Twitter stream notifies us of a new Tweet with the term 'vegan', we handle it!
-var stream = T.stream('statuses/filter', { track: 'vegan' });
+var stream = T.stream('statuses/filter', { track: ['vegan', 'veganist'] });
 // Load filters from all files in the filters directory
 var filter = new TweetFilter('filters', settings.FILTERED_TERMS);
 
