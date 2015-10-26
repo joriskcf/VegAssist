@@ -1,10 +1,23 @@
+var adverbs = [
+    'echt', 'totaal', 'waarschijnlijk', 'zeker', 'ws', 'denk ik',
+    '[sz]owie?[sz]o', 'letterlijk', 'beslist', 'oprecht', 'werke?lijk', 'absoluut',
+    'sws', 'gegarandeerd', 'serieus', 'weer', 'eerlijk', 'eigen?lijk',
+    'compleet', 'helemaal', 'inderdaad', 'gaarne', '(heel )?(ontzettend )?(erg )?(ziels)?graag'
+];
+var adverbsRegexSet = adverbs.join('|');
+
+var robustRegex = function(regexStr, flags) {
+    flags = flags || 'i';
+
+    // replace all spaces with a pattern that matches any combination of whitespace and/or periods
+    regexStr = regexStr.replace(/ /g, '([\\s.]+)');
+
+    return new RegExp(regexStr, flags);
+}
+
 module.exports = [
-    'help me veganist te worden',
-    'help me vegan te worden',
-    'ik wil veganist worden',
-    'ik wil vegan worden',
-    'ik wil veganist zijn',
-    'ik wil vegan zijn',
+    robustRegex( "help me ((om )?( een)?) #?vegan(ist)? (te )? (worden?|zijn)" ),
+    robustRegex( "ik (wil|moet|ga|zou|overweeg|denk (er)? ?aan?) ?(om)? (" + adverbsRegexSet + ")? (proberen )?(om )?( een)? #?vegan(ist)? (moeten )?(te )?(worden?|zijn|blijven)" ),
 //  'help me vegetarier te worden',
 //  'help me vegetariër te worden',
 //  'help me vegetarisch te worden',
