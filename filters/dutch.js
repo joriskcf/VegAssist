@@ -1,8 +1,8 @@
 var adverbs = [
-    'echt', 'totaal', 'waarschijnlijk', 'zeker', 'ws', 'denk ik',
+    'echt', 'totaal', 'waarschijnlijk', 'zeker', 'ws', 'denk ik', 'helemaal', 'volledig',
     '[sz]owie?[sz]o', 'letterlijk', 'beslist', 'oprecht', 'werke?lijk', 'absoluut',
-    'sws', 'gegarandeerd', 'serieus', 'weer', 'eerlijk', 'eigen?lijk',
-    'compleet', 'helemaal', 'inderdaad', 'gaarne', '(heel )?(ontzettend )?(erg )?(ziels)?graag'
+    'sws', 'gegarandeerd', 'serieus', 'weer', 'eerlijk', 'eigen?lijk', 'miss?(chien)?',
+    'compleet', 'helemaal', 'inderdaad', 'wel', '(heel )?(ontzettend )?(erg )?(ziels)?graag'
 ];
 var adverbsRegexSet = adverbs.join('|');
 
@@ -16,7 +16,7 @@ var robustRegex = function(regexStr, flags) {
 }
 
 module.exports = [
-    robustRegex( "help me ((om )?( een)?) #?vegan(ist)? (te )? (worden?|zijn)" ),
+    robustRegex( "help me ((om )?( een)?) #?vegan(ist)?(isch)? (te )? (worden?|zijn)" ),
     robustRegex( "ik (wil|moet|ga|zou|overweeg|denk (er)? ?aan?) ?(om)? (" + adverbsRegexSet + ")? (proberen )?(om )?( een)? #?vegan(ist)? (moeten )?(te )?(worden?|zijn|blijven)" ),
 //  'help me vegetarier te worden',
 //  'help me vegetariër te worden',
